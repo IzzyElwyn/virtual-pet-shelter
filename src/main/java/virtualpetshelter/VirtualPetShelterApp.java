@@ -59,19 +59,28 @@ public class VirtualPetShelterApp {
 				scaryShelter.tick();
 				break;
 			case 3:
-				System.out.println("\nWhich pet would you like to play with?");
+				System.out.println("\nWhich pet would you like to play with?\n");
+				for (VirtualPet pet : pets) {
+					System.out.println(pet.getPetName() + ": " + pet.getDescription());
+				}
 				String chosenPet = input.nextLine();
 				scaryShelter.playWithPet(chosenPet);
 				scaryShelter.tick();
 				break;
 			case 4:
-				System.out.println("\nWhich pet would you like to put down for a nap?");
+				System.out.println("\nWhich pet would you like to put down for a nap?\n");
+				for (VirtualPet pet : pets) {
+					System.out.println(pet.getPetName() + ": " + pet.getDescription());
+				}
 				String sleepyPetChoice = input.nextLine();
 				scaryShelter.putPetDownForNap(sleepyPetChoice);
 				scaryShelter.tick();
 				break;
 			case 5:
-				System.out.println("\nWhich pet would you like to adopt?");
+				System.out.println("\nWhich pet would you like to adopt?\n");
+				for (VirtualPet pet : pets) {
+					System.out.println(pet.getPetName() + ": " + pet.getDescription());
+				}
 				String petToAdopt = input.nextLine();
 				scaryShelter.adoptAPet(petToAdopt);
 				scaryShelter.tick();

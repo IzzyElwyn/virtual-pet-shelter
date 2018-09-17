@@ -15,7 +15,7 @@ public class VirtualPetShelter {
 	}
 
 	public VirtualPet getPet(String petName) {
-		return virtualPets.get(petName);
+		return virtualPets.get(petName.toLowerCase());
 	}
 
 	public Collection<VirtualPet> getListOfPets() {
@@ -23,7 +23,7 @@ public class VirtualPetShelter {
 	}
 
 	public void adoptAPet(String petName) {
-		virtualPets.remove(petName);
+		virtualPets.remove(petName.toLowerCase());
 	}
 
 	public void tick() {
@@ -48,12 +48,12 @@ public class VirtualPetShelter {
 	}
 
 	public void playWithPet(String petName) {
-		virtualPets.get(petName).play();
+		virtualPets.get(petName.toLowerCase()).play();
 		
 	}
 
 	public void putPetDownForNap(String petName) {
-		virtualPets.get(petName).rest();
+		virtualPets.get(petName.toLowerCase()).rest();
 		
 	}
 	

@@ -39,8 +39,8 @@ public class VirtualPet {
 	
 
 	public VirtualPet(String petName, String description) {
-		this.petName = petName;
-		this.description = description;
+		this.petName = petName.toLowerCase();
+		this.description = description.toLowerCase();
 		this.hunger = 100;
 		this.thirst = 100;
 		this.tiredness = 100;
@@ -49,8 +49,8 @@ public class VirtualPet {
 	}
 
 	public VirtualPet(String petName, String description, int hunger, int thirst, int tiredness, int boredom) {
-		this.petName = petName;
-		this.description = description;
+		this.petName = petName.toLowerCase();
+		this.description = description.toLowerCase();
 		this.hunger = hunger;
 		this.thirst = thirst;
 		this.tiredness = tiredness;
@@ -92,10 +92,27 @@ public class VirtualPet {
 
 	public void tick() {
 		Integer impactAmount = rand.nextInt(10) + 1;
+		if (getHunger() - impactAmount < 0) {
+			hunger = 0;
+		} else {
 		hunger = getHunger() - impactAmount;
+		}
+		if (getThirst() - impactAmount < 0) {
+			thirst = 0;
+		} else {
 		thirst = getThirst() - impactAmount;
+		}
+		if (getTiredness() - impactAmount < 0) {
+			tiredness = 0;
+		} else {
 		tiredness = getTiredness() - impactAmount;
+		} 
+		if (getBoredom() - impactAmount < 0) {
+			boredom = 0;
+		} else {
 		boredom = getBoredom() - impactAmount;
+		}
+		
 	}
 
 
