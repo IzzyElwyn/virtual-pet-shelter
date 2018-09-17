@@ -34,7 +34,7 @@ public class VirtualPetShelterTest {
 		underTest.dropOffHomelessPet(pet1);
 		underTest.dropOffHomelessPet(pet2);
 		Collection<?> animalList = underTest.getListOfPets();
-		Collection<?> expectedResult = underTest.virtualPetsList;
+		Collection<?> expectedResult = underTest.virtualPets.values();
 		assertThat(animalList, is(expectedResult));
 	}
 	

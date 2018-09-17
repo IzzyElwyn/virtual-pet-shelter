@@ -8,7 +8,6 @@ import java.util.Map.Entry;
 public class VirtualPetShelter {
 	
 	Map<String, VirtualPet> virtualPets = new HashMap<>();
-	Collection<VirtualPet> virtualPetsList = virtualPets.values();
 
 	public void dropOffHomelessPet(VirtualPet pet) {
 		virtualPets.put(pet.getPetName(), pet);
@@ -20,7 +19,7 @@ public class VirtualPetShelter {
 	}
 
 	public Collection<VirtualPet> getListOfPets() {
-		return virtualPetsList;
+		return virtualPets.values();
 	}
 
 	public void adoptAPet(String petName) {
