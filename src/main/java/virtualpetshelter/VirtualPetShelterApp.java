@@ -37,26 +37,21 @@ public class VirtualPetShelterApp {
 				System.out.println(pet.getPetName() + "\t|" + pet.getHunger() + "\t|" + pet.getThirst() + "\t|"
 						+ pet.getBoredom() + "\t |" + pet.getTiredness());
 			}
-			
+
 			System.out.println("\nWhat would you like to do?\n");
-			System.out.println("Press 1 to feed the pets\n"
-							+ "Press 2 to water the pets\n"
-							+ "Press 3 to play with a pet\n"
-							+ "Press 4 to put a pet down for a nap\n"
-							+ "Press 5 to adopt a pet\n"
-							+ "Press 6 to process a newly dropped-off pet\n"
-							+ "Press 0 to exit\n");
+			System.out.println(
+					"Press 1 to feed the pets\n" + "Press 2 to water the pets\n" + "Press 3 to play with a pet\n"
+							+ "Press 4 to put a pet down for a nap\n" + "Press 5 to adopt a pet\n"
+							+ "Press 6 to process a newly dropped-off pet\n" + "Press 0 to exit\n");
 			userOption = input.nextInt();
 			input.nextLine();
 
 			switch (userOption) {
 			case 1:
 				scaryShelter.feedPets();
-				scaryShelter.tick();
 				break;
 			case 2:
 				scaryShelter.waterPets();
-				scaryShelter.tick();
 				break;
 			case 3:
 				System.out.println("\nWhich pet would you like to play with?\n");
@@ -65,7 +60,6 @@ public class VirtualPetShelterApp {
 				}
 				String chosenPet = input.nextLine();
 				scaryShelter.playWithPet(chosenPet);
-				scaryShelter.tick();
 				break;
 			case 4:
 				System.out.println("\nWhich pet would you like to put down for a nap?\n");
@@ -74,7 +68,6 @@ public class VirtualPetShelterApp {
 				}
 				String sleepyPetChoice = input.nextLine();
 				scaryShelter.putPetDownForNap(sleepyPetChoice);
-				scaryShelter.tick();
 				break;
 			case 5:
 				System.out.println("\nWhich pet would you like to adopt?\n");
@@ -83,23 +76,23 @@ public class VirtualPetShelterApp {
 				}
 				String petToAdopt = input.nextLine();
 				scaryShelter.adoptAPet(petToAdopt);
-				scaryShelter.tick();
 				break;
-			case 6: System.out.println("\nWhat is the name of the pet being admitted?");
-					String intakePetName = input.nextLine();
-					System.out.println("\nPlease provide a brief description of the pet being admitted");
-					String intakeDescription = input.nextLine();
-					VirtualPet dropOffPet = new VirtualPet(intakePetName, intakeDescription);
-					scaryShelter.dropOffHomelessPet(dropOffPet);
-					scaryShelter.tick();
+			case 6:
+				System.out.println("\nWhat is the name of the pet being admitted?");
+				String intakePetName = input.nextLine();
+				System.out.println("\nPlease provide a brief description of the pet being admitted");
+				String intakeDescription = input.nextLine();
+				VirtualPet dropOffPet = new VirtualPet(intakePetName, intakeDescription);
+				scaryShelter.dropOffHomelessPet(dropOffPet);
 				break;
 			default:
-				scaryShelter.tick();
 				System.out.println(" ");
 			}
 
+			scaryShelter.tick();
+
 		} while (userOption != 0);
-		
+
 		System.out.println("We appreciate your help with our unusual critters. ");
 		System.out.println("Have a spooky day");
 		input.close();
