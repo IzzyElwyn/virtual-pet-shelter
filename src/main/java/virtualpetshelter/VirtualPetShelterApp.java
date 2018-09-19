@@ -58,8 +58,25 @@ public class VirtualPetShelterApp {
 				for (VirtualPet pet : pets) {
 					System.out.println(pet.getPetName() + ": " + pet.getDescription());
 				}
-				String chosenPet = input.nextLine();
+				String chosenPet = input.nextLine().toLowerCase();
+				switch (chosenPet) {
+				case "ben":
+					System.out.println(AsciiArt.playWithBen());
+					break;
+				case "audrey2":
+					System.out.println(AsciiArt.playWithAudreyII());
+					break;
+				case "church":
+					System.out.println(AsciiArt.playWithChurch());
+					break;
+				case "stripe":
+					System.out.println(AsciiArt.playWithStripe());
+					break;
+				default:
+					System.out.println("You play with " + chosenPet);
+				}
 				scaryShelter.playWithPet(chosenPet);
+				System.out.println(" ");
 				break;
 			case 4:
 				System.out.println("\nWhich pet would you like to put down for a nap?\n");
